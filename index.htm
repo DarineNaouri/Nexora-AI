@@ -4,10 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#10111b">
+<meta name="description" content="Nexora AI, ton espace pour apprendre, créer et organiser tes idées.">
 <title>Nexora AI</title>
 
 <style>
 :root {
+  color-scheme: dark;
   --bg: #10111b;
   --panel: #191b29;
   --panel2: #222438;
@@ -17,10 +19,13 @@
   --accent: #8b7cff;
   --hover: #2b2d43;
   --danger: #ff647c;
-  --radius: 16px;
+  --shadow: 0 12px 35px #0002;
+  --radius: 20px;
+  --gradient: linear-gradient(135deg, var(--accent), #54c8ff);
 }
 
 body[data-theme="light"] {
+  color-scheme: light;
   --bg: #f4f5fb;
   --panel: #ffffff;
   --panel2: #ebedfa;
@@ -53,16 +58,168 @@ body[data-theme="purple"] {
   --hover: #48265e;
 }
 
+body[data-theme="neon"] {
+  --bg: #090b13;
+  --panel: #141826;
+  --panel2: #20283a;
+  --text: #f1fff9;
+  --muted: #a3b8bb;
+  --border: #244b4a;
+  --accent: #00e6a8;
+  --hover: #203b3b;
+}
+
+body[data-theme="business"] {
+  --bg: #111827;
+  --panel: #1f2937;
+  --panel2: #293548;
+  --text: #f8fafc;
+  --muted: #bdc7d7;
+  --border: #3b4b60;
+  --accent: #60a5fa;
+  --hover: #334155;
+}
+
+body[data-theme="senior"] {
+  --bg: #f8f5ef;
+  --panel: #fffdf8;
+  --panel2: #f0e9dc;
+  --text: #302d27;
+  --muted: #6e675b;
+  --border: #ded4c4;
+  --accent: #557c68;
+  --hover: #e9e6dc;
+  color-scheme: light;
+}
+
+body[data-theme="pink"] {
+  --bg: #271421;
+  --panel: #3a1d31;
+  --panel2: #502640;
+  --text: #fff2f8;
+  --muted: #e2b6cb;
+  --border: #713c5a;
+  --accent: #ff78b7;
+  --hover: #61314e;
+}
+
+body[data-theme="sunset"] {
+  --bg: #24151d;
+  --panel: #38202a;
+  --panel2: #4b2b34;
+  --text: #fff5ef;
+  --muted: #e5bfb0;
+  --border: #71444b;
+  --accent: #ff976c;
+  --hover: #59343c;
+}
+
+body[data-theme="nature"] {
+  --bg: #101d17;
+  --panel: #1b2b21;
+  --panel2: #273c2d;
+  --text: #effff1;
+  --muted: #b0cbb4;
+  --border: #3d5944;
+  --accent: #7ddc91;
+  --hover: #304b37;
+}
+
+body[data-theme="ice"] {
+  --bg: #101d2d;
+  --panel: #192b40;
+  --panel2: #243c54;
+  --text: #f2f9ff;
+  --muted: #b8ccdf;
+  --border: #3a5873;
+  --accent: #83d7ff;
+  --hover: #304c67;
+}
+
+body[data-theme="galaxy"] {
+  --bg: #100c25;
+  --panel: #1d1739;
+  --panel2: #2c2350;
+  --text: #f8f1ff;
+  --muted: #c0b1e0;
+  --border: #514174;
+  --accent: #b39aff;
+  --hover: #392d60;
+}
+
+body[data-theme="lemon"] {
+  --bg: #202015;
+  --panel: #303020;
+  --panel2: #41412b;
+  --text: #fffde9;
+  --muted: #d8d4a8;
+  --border: #62603a;
+  --accent: #e8e75b;
+  --hover: #4c4b2e;
+}
+
+body[data-theme="coral"] {
+  --bg: #251718;
+  --panel: #392323;
+  --panel2: #4d3030;
+  --text: #fff5f2;
+  --muted: #e4bcb5;
+  --border: #744b49;
+  --accent: #ff8e83;
+  --hover: #5a3737;
+}
+
+body[data-theme="midnight"] {
+  --bg: #080d18;
+  --panel: #111a2a;
+  --panel2: #1b2940;
+  --text: #f0f5ff;
+  --muted: #aab8d3;
+  --border: #2d405e;
+  --accent: #7c9cff;
+  --hover: #22334e;
+}
+
+body[data-theme="candy"] {
+  --bg: #21162d;
+  --panel: #322040;
+  --panel2: #432b54;
+  --text: #fff4ff;
+  --muted: #d5bce8;
+  --border: #67457b;
+  --accent: #ff91dc;
+  --hover: #533464;
+}
+
+body[data-theme="sand"] {
+  --bg: #252019;
+  --panel: #383027;
+  --panel2: #494034;
+  --text: #fff8eb;
+  --muted: #d7c8b0;
+  --border: #6a5944;
+  --accent: #e7b66c;
+  --hover: #554838;
+}
+
 * {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: var(--bg);
-  color: var(--text);
   min-height: 100vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  background:
+    radial-gradient(ellipse at top right, #8b7cff12, transparent 45%),
+    var(--bg);
+  color: var(--text);
+  transition: background-color .25s, color .25s;
 }
 
 button, input, textarea, select {
@@ -78,7 +235,12 @@ input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
   outline: 2px solid var(--accent);
-  outline-offset: 2px;
+  outline-offset: 3px;
+}
+
+button:disabled {
+  opacity: .6;
+  cursor: not-allowed;
 }
 
 .app {
@@ -87,9 +249,9 @@ select:focus-visible {
 }
 
 .sidebar {
-  width: 255px;
+  width: 265px;
   flex-shrink: 0;
-  padding: 18px;
+  padding: 20px 16px;
   background: var(--panel);
   border-right: 1px solid var(--border);
   display: flex;
@@ -100,21 +262,22 @@ select:focus-visible {
 .brand {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 22px;
-  font-weight: 800;
-  letter-spacing: -0.6px;
-  padding: 8px 4px 18px;
+  gap: 11px;
+  font-size: 23px;
+  font-weight: 850;
+  letter-spacing: -.8px;
+  padding: 8px 5px 20px;
 }
 
 .brand-icon {
   display: grid;
   place-items: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 13px;
-  background: var(--accent);
+  width: 44px;
+  height: 44px;
+  border-radius: 15px;
+  background: var(--gradient);
   color: white;
+  box-shadow: 0 5px 18px #0002;
 }
 
 .nav-button,
@@ -122,19 +285,21 @@ select:focus-visible {
 .secondary-button,
 .icon-btn {
   border: 1px solid transparent;
-  border-radius: 12px;
+  border-radius: 13px;
   color: var(--text);
   background: transparent;
   padding: 12px 14px;
   text-align: left;
-  transition: background .2s, border-color .2s;
+  transition: background .2s, border-color .2s,
+    transform .2s, filter .2s;
 }
 
 .nav-button {
   width: 100%;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 11px;
+  margin-bottom: 5px;
 }
 
 .nav-button:hover,
@@ -146,18 +311,21 @@ select:focus-visible {
 .nav-button.active {
   background: var(--hover);
   border-color: var(--border);
+  box-shadow: inset 3px 0 var(--accent);
 }
 
 .primary-button {
-  background: var(--accent);
+  background: var(--gradient);
   color: white;
   border: none;
-  font-weight: 700;
+  font-weight: 750;
   text-align: center;
+  box-shadow: 0 5px 18px #0002;
 }
 
 .primary-button:hover {
-  filter: brightness(1.08);
+  filter: brightness(1.1);
+  transform: translateY(-1px);
 }
 
 .secondary-button {
@@ -168,7 +336,7 @@ select:focus-visible {
 .sidebar-bottom {
   margin-top: auto;
   border-top: 1px solid var(--border);
-  padding-top: 14px;
+  padding: 16px 5px 4px;
 }
 
 .main {
@@ -179,14 +347,17 @@ select:focus-visible {
 }
 
 .topbar {
-  min-height: 76px;
-  padding: 14px 22px;
+  min-height: 82px;
+  padding: 15px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
   border-bottom: 1px solid var(--border);
   background: var(--panel);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .topbar-title {
@@ -194,8 +365,9 @@ select:focus-visible {
 }
 
 .topbar-title h1 {
-  font-size: 19px;
+  font-size: 20px;
   margin: 0;
+  letter-spacing: -.4px;
 }
 
 .topbar-title p {
@@ -212,8 +384,8 @@ select:focus-visible {
 
 .icon-btn {
   border: 1px solid var(--border);
-  min-width: 42px;
-  min-height: 42px;
+  min-width: 43px;
+  min-height: 43px;
   display: inline-grid;
   place-items: center;
   font-size: 20px;
@@ -221,28 +393,35 @@ select:focus-visible {
 
 .content {
   width: 100%;
-  max-width: 1000px;
+  max-width: 1080px;
   margin: 0 auto;
-  padding: 24px;
+  padding: 26px;
   flex: 1;
 }
 
 .page {
   display: none;
+  animation: appear .25s ease;
 }
 
 .page.active {
   display: block;
 }
 
+@keyframes appear {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .welcome {
-  padding: 24px 0 12px;
+  padding: 24px 0 16px;
 }
 
 .welcome h2 {
-  font-size: clamp(26px, 5vw, 42px);
+  font-size: clamp(28px, 5vw, 44px);
   margin: 0 0 12px;
-  letter-spacing: -1.3px;
+  letter-spacing: -1.4px;
+  line-height: 1.15;
 }
 
 .gradient-text {
@@ -251,39 +430,44 @@ select:focus-visible {
 
 .muted {
   color: var(--muted);
+  line-height: 1.65;
 }
 
 .card {
   border: 1px solid var(--border);
   background: var(--panel);
   border-radius: var(--radius);
-  padding: 20px;
-  margin-bottom: 16px;
+  padding: 22px;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow);
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
+  gap: 15px;
 }
 
 .suggestion {
-  padding: 17px;
-  border-radius: 14px;
+  padding: 20px;
+  border-radius: 17px;
   border: 1px solid var(--border);
   background: var(--panel);
   text-align: left;
   color: var(--text);
+  transition: transform .2s, background .2s, border-color .2s;
 }
 
 .suggestion:hover {
   background: var(--hover);
+  border-color: var(--accent);
+  transform: translateY(-2px);
 }
 
 .chat-layout {
   display: flex;
   flex-direction: column;
-  min-height: 60vh;
+  min-height: 58vh;
 }
 
 .chat-messages {
@@ -294,10 +478,10 @@ select:focus-visible {
 }
 
 .message {
-  padding: 14px 16px;
-  border-radius: 15px;
+  padding: 14px 17px;
+  border-radius: 17px;
   max-width: 85%;
-  line-height: 1.6;
+  line-height: 1.65;
   overflow-wrap: anywhere;
   white-space: pre-wrap;
 }
@@ -325,67 +509,64 @@ select:focus-visible {
   flex: 1;
   min-width: 0;
   resize: vertical;
-  min-height: 52px;
+  min-height: 54px;
   max-height: 180px;
   padding: 14px;
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: 15px;
   background: var(--panel);
   color: var(--text);
 }
 
-.chat-form button {
-  align-self: flex-end;
-}
-
 .form-row {
   display: grid;
-  gap: 7px;
-  margin-bottom: 16px;
+  gap: 8px;
+  margin-bottom: 18px;
 }
 
 .form-row label {
-  font-weight: 650;
+  font-weight: 700;
 }
 
 .form-row input,
 .form-row select,
 .form-row textarea {
   width: 100%;
-  padding: 12px;
+  padding: 13px;
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 12px;
   color: var(--text);
   background: var(--panel2);
 }
 
 .avatar-preview {
-  width: 100px;
-  height: 100px;
-  border-radius: 28px;
+  width: 105px;
+  height: 105px;
+  border-radius: 30px;
   display: grid;
   place-items: center;
-  font-size: 44px;
+  font-size: 46px;
   background: var(--panel2);
   border: 1px solid var(--border);
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 .call-card {
   text-align: center;
-  padding: 40px 20px;
+  padding: 42px 20px;
 }
 
 .call-avatar {
-  width: 110px;
-  height: 110px;
+  width: 115px;
+  height: 115px;
   margin: 0 auto 20px;
   display: grid;
   place-items: center;
   border-radius: 50%;
-  background: var(--accent);
+  background: var(--gradient);
   color: white;
   font-size: 48px;
+  box-shadow: 0 10px 30px #0002;
 }
 
 .call-actions {
@@ -400,7 +581,7 @@ select:focus-visible {
   background: var(--danger);
   color: white;
   border: 0;
-  border-radius: 12px;
+  border-radius: 13px;
   padding: 12px 16px;
 }
 
@@ -410,15 +591,15 @@ select:focus-visible {
 
 .more-menu {
   position: absolute;
-  top: 50px;
+  top: 52px;
   right: 0;
   z-index: 1000;
-  width: min(270px, calc(100vw - 32px));
+  width: min(280px, calc(100vw - 30px));
   padding: 8px;
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: 16px;
   background: var(--panel);
-  box-shadow: 0 8px 28px #0005;
+  box-shadow: 0 12px 35px #0005;
 }
 
 .more-menu button {
@@ -426,7 +607,7 @@ select:focus-visible {
   width: 100%;
   padding: 12px;
   border: 0;
-  border-radius: 9px;
+  border-radius: 10px;
   background: transparent;
   color: var(--text);
   text-align: left;
@@ -445,8 +626,8 @@ select:focus-visible {
 
 .mode-status {
   display: inline-block;
-  padding: 5px 9px;
-  margin-top: 8px;
+  padding: 6px 10px;
+  margin-top: 9px;
   border-radius: 999px;
   border: 1px solid var(--border);
   color: var(--muted);
@@ -457,11 +638,12 @@ select:focus-visible {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--panel);
-  padding: 24px;
+  padding: 26px;
+  box-shadow: var(--shadow);
 }
 
 .creator-mark {
-  font-size: 42px;
+  font-size: 44px;
   margin-bottom: 10px;
 }
 
@@ -481,12 +663,13 @@ select:focus-visible {
 }
 
 .toast {
-  padding: 13px 16px;
-  border-radius: 12px;
+  padding: 14px 16px;
+  border-radius: 13px;
   border: 1px solid var(--border);
   background: var(--panel);
   color: var(--text);
   box-shadow: 0 6px 22px #0004;
+  animation: appear .2s ease;
 }
 
 .hidden {
@@ -497,7 +680,7 @@ select:focus-visible {
   color: var(--muted);
   text-align: center;
   font-size: 12px;
-  padding: 22px;
+  padding: 24px;
 }
 
 @media (max-width: 760px) {
@@ -507,7 +690,8 @@ select:focus-visible {
     z-index: 1500;
     transform: translateX(-105%);
     transition: transform .25s;
-    box-shadow: 10px 0 30px #0003;
+    box-shadow: 10px 0 30px #0004;
+    overflow-y: auto;
   }
 
   body.menu-open .sidebar {
@@ -533,16 +717,31 @@ select:focus-visible {
   .welcome h2 {
     font-size: 30px;
   }
+
+  .chat-form {
+    flex-direction: column;
+  }
+
+  .chat-form button {
+    align-self: stretch;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 </style>
 </head>
+
 <body data-theme="dark">
 
 <div class="app">
 
-  <!-- BARRE LATERALE -->
   <aside class="sidebar" id="sidebar">
-
     <div class="brand">
       <div class="brand-icon">✦</div>
       <span>Nexora AI</span>
@@ -552,34 +751,14 @@ select:focus-visible {
       ＋ Nouvelle conversation
     </button>
 
-    <nav>
-      <button class="nav-button active" data-page="home">
-        🏠 Accueil
-      </button>
-
-      <button class="nav-button" data-page="chat">
-        💬 Assistant IA
-      </button>
-
-      <button class="nav-button" data-page="calls">
-        📞 Appels
-      </button>
-
-      <button class="nav-button" data-page="avatar">
-        🎨 Mon avatar
-      </button>
-
-      <button class="nav-button" data-page="creator">
-        👩‍💻 Créatrice
-      </button>
-
-      <button class="nav-button" data-page="settings">
-        ⚙️ Paramètres
-      </button>
-
-      <button class="nav-button" data-page="about">
-        ℹ️ À propos
-      </button>
+    <nav aria-label="Navigation principale">
+      <button class="nav-button active" data-page="home">🏠 Accueil</button>
+      <button class="nav-button" data-page="chat">💬 Assistant IA</button>
+      <button class="nav-button" data-page="calls">📞 Appels</button>
+      <button class="nav-button" data-page="avatar">🎨 Mon avatar</button>
+      <button class="nav-button" data-page="creator">👩‍💻 Créatrice</button>
+      <button class="nav-button" data-page="settings">⚙️ Paramètres</button>
+      <button class="nav-button" data-page="about">ℹ️ À propos</button>
     </nav>
 
     <div class="sidebar-bottom">
@@ -588,95 +767,50 @@ select:focus-visible {
         Ton assistant numérique ✨
       </div>
     </div>
-
   </aside>
 
-
-  <!-- CONTENU PRINCIPAL -->
   <main class="main">
 
-    <!-- EN-TETE -->
     <header class="topbar">
-
       <div class="topbar-title">
         <h1 id="pageTitle">Accueil</h1>
         <p>Bienvenue dans ton espace Nexora AI</p>
-
-        <span class="mode-status" id="currentMode">
-          ✨ Mode Standard
-        </span>
+        <span class="mode-status" id="currentMode">✨ Mode Standard</span>
       </div>
 
       <div class="topbar-actions">
-
         <button class="icon-btn" id="mobileMenuBtn"
-                aria-label="Ouvrir le menu">
-          ☰
-        </button>
+                aria-label="Ouvrir le menu">☰</button>
 
-        <!-- MENU DES TROIS PETITS POINTS -->
         <div class="more-menu-wrap">
-
           <button class="icon-btn" id="moreMenuBtn"
                   aria-label="Plus d'options"
                   aria-expanded="false"
-                  aria-controls="moreMenu">
-            ⋮
-          </button>
+                  aria-controls="moreMenu">⋮</button>
 
           <div class="more-menu hidden" id="moreMenu">
-
             <div style="padding:10px 12px;font-weight:800">
               Choisir un mode
             </div>
-
-            <button data-mode="ado">
-              🎓 Mode Ado
-            </button>
-
-            <button data-mode="professionnel">
-              💼 Mode Professionnel
-            </button>
-
-            <button data-mode="senior">
-              🌷 Mode Seniors
-            </button>
-
-            <button data-mode="enfant">
-              🧸 Mode Enfants
-            </button>
-
-            <button data-mode="standard">
-              ✨ Mode Standard
-            </button>
-
+            <button data-mode="ado">🎓 Mode Ado</button>
+            <button data-mode="professionnel">💼 Mode Professionnel</button>
+            <button data-mode="senior">🌷 Mode Seniors</button>
+            <button data-mode="enfant">🧸 Mode Enfants</button>
+            <button data-mode="standard">✨ Mode Standard</button>
             <hr>
-
-            <button id="creatorInfoBtn">
-              👩‍💻 À propos de la créatrice
-            </button>
-
+            <button id="creatorInfoBtn">👩‍💻 À propos de la créatrice</button>
           </div>
         </div>
-
       </div>
-
     </header>
 
-
-    <!-- PAGES -->
     <div class="content">
 
-
-      <!-- ACCUEIL -->
       <section class="page active" id="page-home">
-
         <div class="welcome">
-          <h2>
-            Bonjour ! 👋<br>
+          <h2>Bonjour ! 👋<br>
             Bienvenue sur <span class="gradient-text">Nexora AI</span>
           </h2>
-
           <p class="muted">
             Un espace pour apprendre, créer, organiser tes idées
             et découvrir de nouvelles possibilités.
@@ -685,166 +819,112 @@ select:focus-visible {
 
         <div class="card">
           <h3>✨ Ton mode actuel</h3>
-
           <p class="muted">
-            Tu peux changer de mode à tout moment en appuyant
-            sur les trois petits points ⋮ en haut de l'écran.
+            Change de mode à tout moment avec les trois petits points ⋮.
           </p>
-
           <strong id="homeModeLabel">Mode Standard</strong>
         </div>
 
         <h3>Que veux-tu faire aujourd'hui ?</h3>
 
         <div class="grid">
-
-          <button class="suggestion" data-prompt="Aide-moi à apprendre quelque chose de nouveau.">
+          <button class="suggestion"
+            data-prompt="Aide-moi à apprendre quelque chose de nouveau.">
             📚 <strong>Apprendre</strong>
             <p class="muted">Découvrir et comprendre.</p>
           </button>
 
-          <button class="suggestion" data-prompt="Aide-moi à organiser mes idées.">
+          <button class="suggestion"
+            data-prompt="Aide-moi à organiser mes idées.">
             💡 <strong>Organiser mes idées</strong>
             <p class="muted">Préparer un projet.</p>
           </button>
 
-          <button class="suggestion" data-prompt="Aide-moi à écrire un texte.">
+          <button class="suggestion"
+            data-prompt="Aide-moi à écrire un texte.">
             ✍️ <strong>Écrire</strong>
             <p class="muted">Créer et rédiger.</p>
           </button>
 
-          <button class="suggestion" data-prompt="Présente-moi les fonctionnalités de Nexora AI.">
+          <button class="suggestion"
+            data-prompt="Présente-moi les fonctionnalités de Nexora AI.">
             🚀 <strong>Découvrir Nexora</strong>
             <p class="muted">Explorer l'application.</p>
           </button>
-
         </div>
-
       </section>
 
-
-      <!-- ASSISTANT -->
       <section class="page" id="page-chat">
-
         <div class="welcome">
           <h2>💬 Mon assistant</h2>
-
-          <p class="muted">
-            Pose une question ou écris ce dont tu as besoin.
-          </p>
+          <p class="muted">Pose une question ou écris ce dont tu as besoin.</p>
         </div>
 
         <div class="chat-layout">
-
-          <div class="chat-messages" id="chatMessages"
-               aria-live="polite">
-
+          <div class="chat-messages" id="chatMessages" aria-live="polite">
             <div class="message assistant">
               Bonjour ! ✨ Je suis Nexora AI.
-
               Comment puis-je t'aider aujourd'hui ?
             </div>
-
           </div>
 
           <form class="chat-form" id="chatForm">
-
             <textarea id="chatInput"
-                      placeholder="Écris ton message..."
-                      aria-label="Ton message"
-                      required></textarea>
-
-            <button class="primary-button" type="submit">
-              Envoyer ➤
-            </button>
-
+              placeholder="Écris ton message..."
+              aria-label="Ton message"
+              required></textarea>
+            <button class="primary-button" type="submit">Envoyer ➤</button>
           </form>
 
           <p class="muted" style="font-size:12px">
             Version de démonstration : les réponses sont simulées.
           </p>
-
         </div>
-
       </section>
 
-
-      <!-- APPELS -->
       <section class="page" id="page-calls">
-
         <div class="welcome">
           <h2>📞 Appels Nexora</h2>
-
-          <p class="muted">
-            Découvre la maquette de l'interface d'appel.
-          </p>
+          <p class="muted">Découvre la maquette de l'interface d'appel.</p>
         </div>
 
         <div class="card call-card">
-
           <div class="call-avatar" id="callAvatar">✦</div>
-
           <h2>Nexora AI</h2>
-
-          <p class="muted" id="callStatus">
-            Prêt pour une démonstration
-          </p>
+          <p class="muted" id="callStatus">Prêt pour une démonstration</p>
 
           <div class="call-actions">
-
             <button class="primary-button" id="startCallBtn">
               📞 Démarrer la démo
             </button>
-
             <button class="secondary-button" id="cameraBtn">
               📷 Caméra : désactivée
             </button>
-
-            <button class="danger-button" id="endCallBtn">
-              Terminer
-            </button>
-
+            <button class="danger-button" id="endCallBtn">Terminer</button>
           </div>
 
           <p class="muted" style="font-size:12px;margin-top:20px">
-            Cette fonction est une simulation : aucun appel réel
-            n'est passé.
+            Simulation uniquement : aucun appel réel n'est passé.
           </p>
-
         </div>
-
       </section>
 
-
-      <!-- AVATAR -->
       <section class="page" id="page-avatar">
-
         <div class="welcome">
           <h2>🎨 Mon avatar</h2>
-
-          <p class="muted">
-            Personnalise l'apparence de ton espace.
-          </p>
+          <p class="muted">Personnalise l'apparence de ton espace.</p>
         </div>
 
         <div class="card">
-
-          <div class="avatar-preview" id="avatarPreview">
-            ✨
-          </div>
+          <div class="avatar-preview" id="avatarPreview">✨</div>
 
           <div class="form-row">
             <label for="avatarName">Nom de ton assistant</label>
-
-            <input id="avatarName"
-                   type="text"
-                   maxlength="40"
-                   value="Nexora AI">
+            <input id="avatarName" type="text" maxlength="40" value="Nexora AI">
           </div>
 
           <div class="form-row">
             <label for="avatarEmoji">Symbole de l'avatar</label>
-
             <select id="avatarEmoji">
               <option value="✨">✨ Étoile</option>
               <option value="🤖">🤖 Robot</option>
@@ -858,155 +938,121 @@ select:focus-visible {
           <button class="primary-button" id="saveAvatarBtn">
             Enregistrer mon avatar
           </button>
-
         </div>
-
       </section>
 
-
-      <!-- PRESENTATION DE LA CREATRICE -->
       <section class="page" id="page-creator">
-
         <div class="welcome">
           <h2>👩‍💻 La créatrice</h2>
-
-          <p class="muted">
-            Derrière Nexora AI, une idée et une ambition.
-          </p>
+          <p class="muted">Derrière Nexora AI, une idée et une ambition.</p>
         </div>
 
         <div class="creator-card">
-
           <div class="creator-mark">💜✨</div>
-
           <h2>Darine Naouri</h2>
-
           <h3>Créatrice de Nexora AI</h3>
 
           <p>
             Nexora AI est un projet imaginé et développé par
             Darine Naouri à l'âge de 13 ans.
           </p>
-
           <p>
             Ce projet a pour ambition de proposer un assistant
-            numérique accessible, créatif et adapté à différents
-            publics.
+            numérique accessible, créatif et adapté à différents publics.
           </p>
-
           <p class="muted">
             Une idée peut devenir un projet grâce à la curiosité,
             à l'apprentissage et à la créativité.
           </p>
 
           <hr style="border-color:var(--border)">
-
           <p><strong>Projet :</strong> Nexora AI</p>
           <p><strong>Créatrice :</strong> Darine Naouri</p>
           <p><strong>Âge au lancement du projet :</strong> 13 ans</p>
-
-          <p class="muted" style="font-size:12px">
-            © 2026 — Nexora AI
-          </p>
-
+          <p class="muted" style="font-size:12px">© 2026 — Nexora AI</p>
         </div>
-
       </section>
 
-
-      <!-- PARAMETRES -->
       <section class="page" id="page-settings">
-
         <div class="welcome">
           <h2>⚙️ Paramètres</h2>
-
-          <p class="muted">
-            Personnalise ton application.
-          </p>
+          <p class="muted">Personnalise ton application.</p>
         </div>
 
         <div class="card">
-
           <div class="form-row">
             <label for="themeSelect">Thème de l'application</label>
-
             <select id="themeSelect">
               <option value="dark">🌙 Sombre</option>
               <option value="light">☀️ Clair</option>
               <option value="ocean">🌊 Océan</option>
               <option value="purple">💜 Violet</option>
+              <option value="neon">💚 Néon</option>
+              <option value="business">💼 Professionnel</option>
+              <option value="senior">🌷 Doux et lisible</option>
+              <option value="pink">🌸 Rose</option>
+              <option value="sunset">🌅 Coucher de soleil</option>
+              <option value="nature">🌿 Nature</option>
+              <option value="ice">🧊 Glace</option>
+              <option value="galaxy">🌌 Galaxie</option>
+              <option value="lemon">🍋 Citron</option>
+              <option value="coral">🪸 Corail</option>
+              <option value="midnight">🌃 Minuit</option>
+              <option value="candy">🍬 Bonbon</option>
+              <option value="sand">🏜️ Sable</option>
             </select>
           </div>
 
           <button class="primary-button" id="saveSettingsBtn">
             Enregistrer les paramètres
           </button>
-
         </div>
 
         <div class="card">
           <h3>💾 Données locales</h3>
-
           <p class="muted">
             Les préférences de cette maquette sont enregistrées
             dans le navigateur de cet appareil.
           </p>
         </div>
-
       </section>
 
-
-      <!-- A PROPOS -->
       <section class="page" id="page-about">
-
         <div class="welcome">
           <h2>ℹ️ À propos de Nexora AI</h2>
         </div>
 
         <div class="card">
-
           <h3>✨ Nexora AI</h3>
-
           <p>
-            Nexora AI est un prototype d'assistant numérique
-            conçu pour explorer différentes façons d'interagir
-            avec une interface intelligente.
+            Nexora AI est un prototype d'assistant numérique conçu
+            pour explorer différentes façons d'interagir avec une
+            interface intelligente.
           </p>
-
           <p>
             Les cinq modes permettent de présenter des expériences
             adaptées à différents publics.
           </p>
-
-          <p>
-            <strong>Créatrice : Darine Naouri, à l'âge de 13 ans.</strong>
-          </p>
-
+          <p><strong>Créatrice : Darine Naouri.</strong></p>
           <p class="muted">
-            Version de démonstration — les réponses de l'assistant
+            Version de démonstration : les réponses de l'assistant
             ne proviennent pas encore d'une véritable IA connectée.
           </p>
-
         </div>
-
       </section>
-
 
       <div class="footer">
         Nexora AI · Imaginé et développé par Darine Naouri 💜
       </div>
 
     </div>
-
   </main>
-
 </div>
 
+<div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
-<!-- NOTIFICATIONS -->
-<div class="toast-container" id="toastContainer"
-     aria-live="polite"></div>
-     <script>
+<!-- La partie 2 contiendra le JavaScript. -->
+<script>
 "use strict";
 
 /* =====================================
@@ -1021,14 +1067,6 @@ const modeNames = {
   standard: "✨ Mode Standard"
 };
 
-const modeDescriptions = {
-  ado: "Des explications adaptées aux adolescents, de l'aide pour apprendre et organiser ses idées.",
-  professionnel: "Un espace consacré à la rédaction, à l'organisation et aux projets.",
-  senior: "Des explications claires, un accompagnement numérique et une navigation simple.",
-  enfant: "Un espace ludique d'apprentissage avec des explications adaptées aux enfants.",
-  standard: "Un assistant polyvalent pour découvrir, écrire et organiser ses idées."
-};
-
 const pageNames = {
   home: "Accueil",
   chat: "Assistant IA",
@@ -1039,8 +1077,41 @@ const pageNames = {
   about: "À propos"
 };
 
+const automaticThemes = {
+  ado: "purple",
+  professionnel: "business",
+  senior: "senior",
+  enfant: "candy",
+  standard: "dark"
+};
+
+const validThemes = [
+  "dark",
+  "light",
+  "ocean",
+  "purple",
+  "neon",
+  "business",
+  "senior",
+  "pink",
+  "sunset",
+  "nature",
+  "ice",
+  "galaxy",
+  "lemon",
+  "coral",
+  "midnight",
+  "candy",
+  "sand"
+];
+
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.querySelectorAll(selector);
+
+
+/* =====================================
+   SAUVEGARDE LOCALE
+===================================== */
 
 function getStored(key, fallback) {
   try {
@@ -1054,8 +1125,10 @@ function getStored(key, fallback) {
 function storeValue(key, value) {
   try {
     localStorage.setItem(key, value);
+    return true;
   } catch (error) {
-    showToast("Impossible de sauvegarder sur cet appareil.");
+    console.warn("Sauvegarde indisponible :", error);
+    return false;
   }
 }
 
@@ -1085,11 +1158,55 @@ function showToast(message) {
 
 
 /* =====================================
+   THÈMES
+===================================== */
+
+const themeSelect = $("#themeSelect");
+
+function applyTheme(theme, save = false) {
+  if (!validThemes.includes(theme)) {
+    theme = "dark";
+  }
+
+  document.body.dataset.theme = theme;
+  themeSelect.value = theme;
+
+  if (save) {
+    storeValue("nexoraTheme", theme);
+  }
+}
+
+const savedTheme = getStored("nexoraTheme", "dark");
+applyTheme(savedTheme);
+
+themeSelect.addEventListener("change", () => {
+  applyTheme(themeSelect.value, true);
+  showToast("Thème modifié ✨");
+});
+
+$("#saveSettingsBtn").addEventListener("click", () => {
+  applyTheme(themeSelect.value, true);
+  showToast("Paramètres enregistrés 💾");
+});
+
+
+/* =====================================
    NAVIGATION
 ===================================== */
 
+function closeMobileMenu() {
+  document.body.classList.remove("menu-open");
+}
+
+function closeMoreMenu() {
+  $("#moreMenu").classList.add("hidden");
+  $("#moreMenuBtn").setAttribute("aria-expanded", "false");
+}
+
 function openPage(page) {
-  if (!pageNames[page]) return;
+  if (!Object.prototype.hasOwnProperty.call(pageNames, page)) {
+    return;
+  }
 
   $$(".page").forEach((element) => {
     element.classList.toggle(
@@ -1102,15 +1219,18 @@ function openPage(page) {
     const active = button.dataset.page === page;
 
     button.classList.toggle("active", active);
-    button.setAttribute("aria-current", active ? "page" : "false");
+
+    if (active) {
+      button.setAttribute("aria-current", "page");
+    } else {
+      button.removeAttribute("aria-current");
+    }
   });
 
   $("#pageTitle").textContent = pageNames[page];
 
-  document.body.classList.remove("menu-open");
-
-  $("#moreMenu").classList.add("hidden");
-  $("#moreMenuBtn").setAttribute("aria-expanded", "false");
+  closeMobileMenu();
+  closeMoreMenu();
 }
 
 $$(".nav-button[data-page]").forEach((button) => {
@@ -1134,10 +1254,10 @@ const moreMenu = $("#moreMenu");
 moreMenuBtn.addEventListener("click", (event) => {
   event.stopPropagation();
 
-  const isOpening = moreMenu.classList.contains("hidden");
+  const opening = moreMenu.classList.contains("hidden");
 
-  moreMenu.classList.toggle("hidden", !isOpening);
-  moreMenuBtn.setAttribute("aria-expanded", String(isOpening));
+  moreMenu.classList.toggle("hidden", !opening);
+  moreMenuBtn.setAttribute("aria-expanded", String(opening));
 });
 
 moreMenu.addEventListener("click", (event) => {
@@ -1145,9 +1265,16 @@ moreMenu.addEventListener("click", (event) => {
 });
 
 document.addEventListener("click", (event) => {
-  if (!moreMenu.contains(event.target)) {
-    moreMenu.classList.add("hidden");
-    moreMenuBtn.setAttribute("aria-expanded", "false");
+  if (!moreMenu.contains(event.target) &&
+      !moreMenuBtn.contains(event.target)) {
+    closeMoreMenu();
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeMoreMenu();
+    closeMobileMenu();
   }
 });
 
@@ -1172,8 +1299,11 @@ function setMode(mode, notify = true) {
     button.setAttribute("aria-pressed", String(selected));
   });
 
-  moreMenu.classList.add("hidden");
-  moreMenuBtn.setAttribute("aria-expanded", "false");
+  // Le mode choisit aussi un thème adapté.
+  const automaticTheme = automaticThemes[mode] || "dark";
+  applyTheme(automaticTheme, true);
+
+  closeMoreMenu();
 
   if (notify) {
     showToast("Mode activé : " + modeNames[mode]);
@@ -1195,44 +1325,12 @@ setMode(savedMode, false);
 ===================================== */
 
 $("#creatorInfoBtn").addEventListener("click", () => {
-  moreMenu.classList.add("hidden");
-  moreMenuBtn.setAttribute("aria-expanded", "false");
-
   openPage("creator");
 });
 
 
 /* =====================================
-   THÈMES
-===================================== */
-
-const themeSelect = $("#themeSelect");
-
-function applyTheme(theme) {
-  const validThemes = ["dark", "light", "ocean", "purple"];
-
-  if (!validThemes.includes(theme)) {
-    theme = "dark";
-  }
-
-  document.body.dataset.theme = theme;
-  themeSelect.value = theme;
-}
-
-applyTheme(getStored("nexoraTheme", "dark"));
-
-$("#saveSettingsBtn").addEventListener("click", () => {
-  const theme = themeSelect.value;
-
-  applyTheme(theme);
-  storeValue("nexoraTheme", theme);
-
-  showToast("Paramètres enregistrés ✨");
-});
-
-
-/* =====================================
-   AVATAR
+   AVATAR PERSONNALISABLE
 ===================================== */
 
 const avatarName = $("#avatarName");
@@ -1241,8 +1339,12 @@ const avatarPreview = $("#avatarPreview");
 
 function loadAvatar() {
   avatarName.value = getStored("nexoraAvatarName", "Nexora AI");
-  avatarEmoji.value = getStored("nexoraAvatarEmoji", "✨");
 
+  const savedEmoji = getStored("nexoraAvatarEmoji", "✨");
+  const emojiExists = Array.from(avatarEmoji.options)
+    .some((option) => option.value === savedEmoji);
+
+  avatarEmoji.value = emojiExists ? savedEmoji : "✨";
   avatarPreview.textContent = avatarEmoji.value;
 }
 
@@ -1253,19 +1355,25 @@ avatarEmoji.addEventListener("change", () => {
 $("#saveAvatarBtn").addEventListener("click", () => {
   const name = avatarName.value.trim() || "Nexora AI";
 
-  storeValue("nexoraAvatarName", name);
-  storeValue("nexoraAvatarEmoji", avatarEmoji.value);
+  avatarName.value = name;
+
+  const nameSaved = storeValue("nexoraAvatarName", name);
+  const emojiSaved = storeValue("nexoraAvatarEmoji", avatarEmoji.value);
 
   avatarPreview.textContent = avatarEmoji.value;
 
-  showToast("Avatar enregistré ✨");
+  if (nameSaved && emojiSaved) {
+    showToast("Avatar enregistré ✨");
+  } else {
+    showToast("La sauvegarde n'est pas disponible.");
+  }
 });
 
 loadAvatar();
 
 
 /* =====================================
-   NOUVELLE CONVERSATION
+   CONVERSATIONS
 ===================================== */
 
 function addMessage(text, type) {
@@ -1298,11 +1406,11 @@ $("#newChatBtn").addEventListener("click", newChat);
 
 
 /* =====================================
-   RÉPONSES DE DÉMONSTRATION
+   RÉPONSES DU CHAT DE DÉMONSTRATION
 ===================================== */
 
 function makeReply(question, mode) {
-  const q = question.toLowerCase();
+  const q = question.toLocaleLowerCase("fr");
 
   const opening = {
     ado: "🎓 Mode Ado : ",
@@ -1312,88 +1420,72 @@ function makeReply(question, mode) {
     standard: "✨ Nexora AI : "
   }[mode] || "✨ Nexora AI : ";
 
-  if (
-    q.includes("bonjour") ||
-    q.includes("salut") ||
-    q.includes("coucou")
-  ) {
+  if (/bonjour|salut|coucou|bonsoir/.test(q)) {
     return opening +
       "Bonjour ! 😊 Que souhaites-tu découvrir ou réaliser aujourd'hui ?";
   }
 
-  if (
-    q.includes("créatrice") ||
-    q.includes("createur") ||
-    q.includes("qui a créé") ||
-    q.includes("qui a cree")
-  ) {
+  if (/créatrice|createur|qui a créé|qui a cree/.test(q)) {
     return opening +
-      "Nexora AI est un projet imaginé et développé par " +
-      "Darine Naouri à l'âge de 13 ans. 💜";
+      "Nexora AI est le projet de Darine Naouri. 💜";
   }
 
-  if (q.includes("mode")) {
+  if (/fonctionnalité|fonctionnalite|présente.*nexora|presente.*nexora/.test(q)) {
     return opening +
-      "Tu peux changer de mode avec les trois petits points ⋮ " +
-      "en haut de l'écran.";
+      "Tu peux explorer l'accueil, discuter avec l'assistant de démonstration, " +
+      "personnaliser ton avatar, changer de thème et découvrir les modes.";
   }
 
-  if (
-    q.includes("devoir") ||
-    q.includes("apprendre") ||
-    q.includes("école") ||
-    q.includes("ecole")
-  ) {
+  if (/mode|thème|theme|couleur/.test(q)) {
+    return opening +
+      "Tu peux choisir un mode avec le menu ⋮ ou personnaliser " +
+      "le thème dans Paramètres.";
+  }
+
+  if (/devoir|apprendre|école|ecole|math|français|francais/.test(q)) {
     if (mode === "enfant") {
       return opening +
-        "Apprendre peut être amusant ! 🌟 " +
-        "Dis-moi ce que tu souhaites découvrir, et nous avancerons étape par étape.";
+        "Apprendre peut être amusant ! 🌟 Dis-moi le sujet que tu " +
+        "souhaites découvrir et nous avancerons étape par étape.";
     }
 
     return opening +
-      "Je peux t'aider à comprendre ton sujet étape par étape. " +
-      "Écris la question ou le thème que tu veux travailler.";
+      "Je peux t'aider à comprendre un sujet étape par étape. " +
+      "Écris ta question ou partage l'exercice que tu veux travailler.";
   }
 
-  if (
-    q.includes("écrire") ||
-    q.includes("ecrire") ||
-    q.includes("texte") ||
-    q.includes("rédiger") ||
-    q.includes("rediger")
-  ) {
+  if (/écrire|ecrire|texte|rédiger|rediger|lettre/.test(q)) {
     return opening +
-      "Je peux t'aider à préparer un texte. " +
-      "Précise son sujet, son objectif et le ton souhaité.";
+      "Je peux t'aider à préparer un texte. Précise le sujet, " +
+      "l'objectif et le ton que tu souhaites.";
   }
 
-  if (
-    q.includes("organiser") ||
-    q.includes("organisation") ||
-    q.includes("planning")
-  ) {
+  if (/organiser|organisation|planning|priorité|priorite/.test(q)) {
     return opening +
-      "Commence par noter les choses à faire, puis classe-les " +
-      "par priorité. Je peux t'aider à créer un planning simple.";
+      "Pour t'organiser, note les tâches à faire, estime leur durée " +
+      "et classe-les par priorité. Je peux t'aider à préparer un planning.";
   }
 
-  if (
-    q.includes("merci")
-  ) {
+  if (/idée|idee|projet|création|creation/.test(q)) {
     return opening +
-      "Avec plaisir ! 😊 Tu peux continuer quand tu veux.";
+      "Pour développer ton idée, commençons par définir le résultat " +
+      "que tu souhaites obtenir, puis les étapes nécessaires.";
+  }
+
+  if (/merci/.test(q)) {
+    return opening + "Avec plaisir ! 😊";
   }
 
   if (mode === "ado") {
     return opening +
-      "Je peux t'aider à explorer cette idée. " +
-      "Explique-moi ce que tu veux comprendre et nous avancerons ensemble.";
+      "Explorons cette idée ensemble. Dis-moi ce que tu souhaites " +
+      "comprendre, et nous avancerons étape par étape.";
   }
 
   if (mode === "professionnel") {
     return opening +
-      "Je peux t'aider à structurer cette demande. " +
-      "Précise ton objectif, les contraintes et le résultat attendu.";
+      "Pour avancer efficacement, précise ton objectif, les contraintes " +
+      "et le résultat attendu.";
   }
 
   if (mode === "senior") {
@@ -1404,15 +1496,13 @@ function makeReply(question, mode) {
 
   if (mode === "enfant") {
     return opening +
-      "Explorons cette idée ensemble ! 🌟 " +
-      "Peux-tu m'en dire un peu plus ?";
+      "Explorons cette idée ensemble ! 🌟 Peux-tu m'en dire un peu plus ?";
   }
 
   return opening +
-    "Merci pour ton message ! Cette version est une démonstration " +
-    "et ne dispose pas encore d'une véritable IA connectée. " +
-    "Tu peux essayer une question sur l'apprentissage, l'écriture " +
-    "ou l'organisation.";
+    "Cette version est une démonstration et n'est pas encore connectée " +
+    "à une véritable IA. Tu peux essayer une question sur l'apprentissage, " +
+    "l'écriture ou l'organisation.";
 }
 
 
@@ -1465,22 +1555,21 @@ function updateCallStatus() {
     ? "Démonstration en cours…"
     : "Prêt pour une démonstration";
 
-  $("#callAvatar").textContent = callActive
-    ? "📞"
-    : "✦";
+  $("#callAvatar").textContent = callActive ? "📞" : "✦";
+
+  $("#startCallBtn").disabled = callActive;
+  $("#endCallBtn").disabled = !callActive;
 }
 
 $("#startCallBtn").addEventListener("click", () => {
   callActive = true;
   updateCallStatus();
-
-  showToast("Démo d'appel démarrée.");
+  showToast("Démo d'appel démarrée 📞");
 });
 
 $("#endCallBtn").addEventListener("click", () => {
   callActive = false;
   updateCallStatus();
-
   showToast("Démo d'appel terminée.");
 });
 
@@ -1503,12 +1592,10 @@ $("#cameraBtn").addEventListener("click", () => {
    INITIALISATION
 ===================================== */
 
+updateCallStatus();
 openPage("home");
 
-console.log(
-  "Nexora AI est prête ! Projet imaginé et développé " +
-  "par Darine Naouri à l'âge de 13 ans."
-);
+console.log("Nexora AI est prête !");
 </script>
 </body>
 </html>
